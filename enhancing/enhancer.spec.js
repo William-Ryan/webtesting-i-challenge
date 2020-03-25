@@ -20,4 +20,23 @@ describe('enhancer', function (){
             expect(repairedItem).toEqual(expected)
         })
     })
+
+    describe('succeed()', function(){
+        it('Should raise enhancement by 1', function(){
+            const item = {
+                name: 'Sword',
+                durability: 100,
+                enhancement: 15
+            };
+
+            const expected = {
+                name: 'Sword',
+                durability: 100,
+                enhancement: 16
+            };
+
+            const enhancedItem = succeed(item);
+            expect(enhancedItem).toEqual(expected)
+        })
+    })
 })
