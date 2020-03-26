@@ -55,5 +55,22 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
-}
+  if (item.enhancement > 0){
+    const newItem = {
+      name: `[+${item.enhancement}]${item.name}`,
+      durability: 100,
+      enhancement: item.enhancement
+    };
+    return newItem
+  } else if (item.enhancement < 1) {
+    const newItem = {
+      name: item.name,
+      durability: 100,
+      enhancement: item.enhancement
+    }
+    return newItem
+  } else {
+    return item
+  }
+}  
+

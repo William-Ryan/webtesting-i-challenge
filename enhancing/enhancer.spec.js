@@ -96,4 +96,42 @@ describe('enhancer', function (){
             expect(failedItem).toEqual(expected)
         })
     })
+
+    describe('get()', function(){
+        it('Should Add the enhancement number before the name with a +', function(){
+            const item = {
+                name: 'Sword',
+                durability: 100,
+                enhancement: 6
+            }
+
+            const expected = {
+                name: `[+6]Sword`,
+                durability: 100,
+                enhancement: 6
+            }
+
+            const getItem = get(item);
+
+            expect(getItem).toEqual(expected)
+        })
+
+        it('Should have a default name at 0 enhancement', function(){
+            const item = {
+                name: 'Sword',
+                durability: 100,
+                enhancement: 0
+            }
+
+            const expected = {
+                name: 'Sword',
+                durability: 100,
+                enhancement: 0
+            }
+
+            const getItem = get(item);
+
+            expect(getItem).toEqual(expected)
+        })
+    })
 })
